@@ -186,3 +186,14 @@ nav {
   .border-issue{
     border-radius: 10px;
   }
+.nav-bar-logo{
+  height: 80px;
+  width: 80px;
+}
+.nav-anch-elements{
+  color: white;
+  margin-right: 10px;
+  text-decoration: none;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 24px;
+}
