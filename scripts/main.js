@@ -8,6 +8,9 @@ document.getElementById('generateBtn').addEventListener('click', async () => {
             },
             body: JSON.stringify({ prompt })
         });
+        if (!response.ok) {
+            throw new Error('Failed to fetch');
+        }
         const data = await response.json();
         if (data.success) {
             const imageUrl = data.imageUrl;
@@ -18,7 +21,7 @@ document.getElementById('generateBtn').addEventListener('click', async () => {
             let imageEl = document.getElementById("imageEl");
             imageEl.src = imageUrl;
         } else {
-            alert('Failed to generate image. Please try again.');
+            throw new Error('Failed to generate image');
         }
     } catch (error) {
         console.error('Error:', error);
