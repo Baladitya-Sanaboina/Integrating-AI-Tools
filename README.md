@@ -31,7 +31,7 @@
     <div class="code-container">
         <pre>
             <code>
-               git clone https://github.com/sashank-27/Project-AI
+              https://github.com/Baladityasanaboina/Integrating-AI-Tools.git
             </code>
         </pre>
         <button class="copy-button" onclick="copyCode()">Copy</button>
