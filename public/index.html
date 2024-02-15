@@ -5,6 +5,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Staatliches&display=swap" rel="stylesheet">
     <title>Image Generator</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"/>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -13,82 +16,139 @@
     <link rel = "stylesheet" href = "style.css">
 </head>
 <body>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Click Here
-    </button>
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content pagemodal">
-                <div class="modal-header">
-                    <h5 class="modal-title head-para" id="exampleModalLabel">AI Image generator</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+       <nav>
+            <div class="logo">Your Logo</div>
+            <ul class="nav-links ">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+    <div class="input-wrapper">
+        <button class="icon"> 
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" height="25px" width="25px">
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" stroke="#fff" d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" stroke="#fff" d="M22 22L20 20"></path>
+          </svg>
+        </button>
+        <input placeholder="" class="input" name="text"  type="text">
+      </div>
+        </nav>
+    
+        <div class="container">
+                  <div class="content">
+                <h1 class="content_h1" >Explore More</h1>
+                <a class="content_a" href="#">Start Learning</a>
+            </div>
+        </div>
+        <div class="back-image">  
+          <div class="container">
+             <div class="row justify-content-center"> <!-- Added justify-content-center class here -->
+                <div class="col-12 text-center">
+                   <h1 class="heading">TITLE</h1>
                 </div>
-                <div class="modal-body">
-                    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-
-                        </ol>
-                        <div class="carousel-inner p-5">
-                            <div class="carousel-item active">
-                                <h1>Image Generator</h1>
-                                <textarea id="prompt" placeholder="Enter prompt"></textarea>
-                                <button id="generateImgBtn">Generate Image</button>
-                                <div id="imageContainer" class = "mb-4">
-                                    <img src="" id="imageEl" alt = "result"/>
-                                    <br/>
+                <div class="card m-3 text-center col-12 col-md-3 mt-5 border-issue" style="width: 18rem;">
+                   <i class="fa-brands fa-pinterest first-icon"></i>
+                   <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        Click Here
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content pagemodal">
+                                <div class="modal-header">
+                                    <h5 class="modal-title head-para" id="exampleModalLabel">AI Image generator</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
                                 </div>
-                                <a href = "result.jpg" download class = "result-download-button">Download Image</a>
+                                <div class="modal-body">
+                                    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                                        <ol class="carousel-indicators">
+                                            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                
+                                        </ol>
+                                        <div class="carousel-inner p-5">
+                                            <div class="carousel-item active">
+                                                <h1>Image Generator</h1>
+                                                <textarea id="prompt" placeholder="Enter prompt"></textarea>
+                                                <button id="generateImgBtn">Generate Image</button>
+                                                <div id="imageContainer" class = "mb-4">
+                                                    <img src="" id="imageEl" alt = "result"/>
+                                                    <br/>
+                                                </div>
+                                                <a href = "result.jpg" download class = "result-download-button">Download Image</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </div>                   
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
                 </div>
-            </div>
-        </div>
-    </div>
-    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#examModal">
-        Click Here
-    </button>
-    <!-- Modal -->
-    <div class="modal fade" id="examModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content pagemodal">
-                <div class="modal-header">
-                    <h5 class="modal-title head-para" id="exampleModalLabel">AI Image</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                <div class="card m-3 text-center col-12 col-md-3 mt-5 border-issue" style="width: 18rem;">
+                   <i class="fa-brands fa-pinterest first-icon"></i>         
+                   <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#examModal">
+                        Click Here
                     </button>
-                </div>
-                <div class="modal-body">
-                    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-
-                        </ol>
-                        <div>
-                            <h1>Video Generator</h1>
-                            <textarea id="promptVideo" placeholder="Enter prompt"></textarea>
-                            <button id="generateVideoBtn">Generate Video</button>
-                            <div id="videoContainer" class="mb-4">
-                                <video controls id="videoEl">
-                                    <source src="" type="video/mp4">
-                                </video>
+                    <!-- Modal -->
+                    <div class="modal fade" id="examModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content pagemodal">
+                                <div class="modal-header">
+                                    <h5 class="modal-title head-para" id="exampleModalLabel">AI Image</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                                        <ol class="carousel-indicators">
+                                            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                
+                                        </ol>
+                                        <div>
+                                            <h1>Video Generator</h1>
+                                            <textarea id="promptVideo" placeholder="Enter prompt"></textarea>
+                                            <button id="generateVideoBtn">Generate Video</button>
+                                            <div id="videoContainer" class="mb-4">
+                                                <video controls id="videoEl">
+                                                    <source src="" type="video/mp4">
+                                                </video>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </div>                   
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
                 </div>
-            </div>
+                <div class="card m-3 text-center col-12 col-md-3 mt-5 border-issue" style="width: 18rem;">
+                   <i class="fa-brands fa-pinterest first-icon"></i>
+                   <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                   </div>
+                </div>
+             </div>
+          </div>
         </div>
-    </div>
-    <script src = "script.js"></script>
+    
+    <script src = 'script.js'></script>
 </body>
 </html>
