@@ -6,38 +6,135 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Generator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <link rel = "stylesheet" href = "style.css">
 </head>
 <body>
-    <h1>Image Generator</h1>
-    <textarea id="prompt" placeholder="Enter prompt"></textarea>
-    <button id="generateBtn">Generate Image</button>
-    <div id="imageContainer">
-        <h1 id="imageLink"></h1>
-        <img src="" id="imageEl"/>
-    </div>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Click Here
+    </button>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content pagemodal">
+                <div class="modal-header">
+                    <h5 class="modal-title head-para" id="exampleModalLabel">AI Image generator</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
 
+                        </ol>
+                        <div class="carousel-inner p-5">
+                            <div class="carousel-item active">
+                                <h1>Image Generator</h1>
+                                <textarea id="prompt" placeholder="Enter prompt"></textarea>
+                                <button id="generateImgBtn">Generate Image</button>
+                                <div id="imageContainer" class = "mb-4">
+                                    <img src="" id="imageEl" alt = "result"/>
+                                    <br/>
+                                </div>
+                                <a href = "result.jpg" download class = "result-download-button">Download Image</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#examModal">
+        Click Here
+    </button>
+    <!-- Modal -->
+    <div class="modal fade" id="examModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content pagemodal">
+                <div class="modal-header">
+                    <h5 class="modal-title head-para" id="exampleModalLabel">AI Image</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+
+                        </ol>
+                        <div>
+                            <h1>Video Generator</h1>
+                            <textarea id="promptVideo" placeholder="Enter prompt"></textarea>
+                            <button id="generateVideoBtn">Generate Video</button>
+                            <div id="videoContainer" class="mb-4">
+                                <h1 id="headVideo">Video URL: </h1>
+                                <video controls id="videoEl">
+                                    <source src="" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script>
-        document.getElementById('generateBtn').addEventListener('click', async () => {
-            const prompt = document.getElementById('prompt').value;
+        document.getElementById('generateImgBtn').addEventListener('click', async () => {
+    const prompt = document.getElementById('prompt').value;
+    try {
+        const response = await fetch('/generate-image', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ prompt })
+        });
+        const data = await response.json();
+        if (data.success) {
+            const imageUrl = data.imageUrl;
+            // Display the generated image
+            
+            let imageEl = document.getElementById("imageEl");
+            imageEl.src = imageUrl;
+        } else {
+            alert('Failed to generate image. Please try again.');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred. Please try again.');
+    }
+
+});
+        document.getElementById('generateVideoBtn').addEventListener('click', async () => {
+            const promptText = document.getElementById('promptVideo').value;
             try {
-                const response = await fetch('/generate-image', {
+                const response = await fetch('/generate-video', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ prompt })
+                    body: JSON.stringify({ prompt: promptText })
                 });
                 const data = await response.json();
                 if (data.success) {
-                    const imageUrl = data.imageUrl;
-                    // Display the generated image
-                    let headingEl = document.getElementById("imageLink");
-                    headingEl.textContent = "Image URL: " + imageUrl;
-                    
-                    let imageEl = document.getElementById("imageEl");
-                    imageEl.src = imageUrl;
+                    const videoUrl = data.videoUrl;
+                    // Display the generated video URL
+                    document.getElementById("headVideo").textContent = 'Video URL: ' + videoUrl;
+                    document.getElementById("videoEl").src = videoUrl;
                 } else {
-                    alert('Failed to generate image. Please try again.');
+                    alert('Failed to generate video. Please try again.');
                 }
             } catch (error) {
                 console.error('Error:', error);

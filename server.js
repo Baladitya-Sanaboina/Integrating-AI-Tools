@@ -61,6 +61,44 @@ app.post('/generate-image', async (req, res) => {
     }
 });
 
+
+app.post('/generate-video', async (req, res) => {
+    const { prompt } = req.body;
+    try {
+        const output = await replicate.run(
+            "cjwbw/damo-text-to-video:1e205ea73084bd17a0a3b43396e49ba0d6bc2e754e9283b2df49fad2dcf95755",
+            {
+              input: {
+                fps: 8,
+                prompt: prompt,
+                num_frames: 50,
+                num_inference_steps: 50
+              }
+            }
+          );
+          console.log(output);
+
+        // Log the entire output object for debugging
+        console.log('Output object:', output);
+
+        // Check if the output contains a valid URL
+        if (output) {
+            // Send the URL in the response
+            res.json({ success: true, videoUrl: output });
+        } else {
+            // Log an error if the URL is not found
+            console.error('Video URL not found in the response:', output);
+            res.status(500).json({ success: false, error: 'Failed to generate image' });
+        }
+    } catch (error) {
+        // Log and handle any errors that occur during image generation
+        console.error('Error generating image:', error);
+        res.status(500).json({ success: false, error: 'Failed to generate image' });
+    }
+});
+
+
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
+
