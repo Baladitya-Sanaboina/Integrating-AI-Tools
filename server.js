@@ -41,12 +41,21 @@ app.post('/generate-image', async (req, res) => {
                 }
             }
         );
+
+        // Log the entire output object for debugging
+        console.log('Output object:', output);
+
+        // Check if the output contains a valid URL
         if (output && output.url) {
+            // Send the URL in the response
             res.json({ success: true, imageUrl: output.url });
         } else {
-            throw new Error("Image URL not found in the response.");
+            // Log an error if the URL is not found
+            console.error('Image URL not found in the response:', output);
+            res.status(500).json({ success: false, error: 'Failed to generate image' });
         }
     } catch (error) {
+        // Log and handle any errors that occur during image generation
         console.error('Error generating image:', error);
         res.status(500).json({ success: false, error: 'Failed to generate image' });
     }
