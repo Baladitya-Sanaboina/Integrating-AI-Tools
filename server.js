@@ -46,9 +46,9 @@ app.post('/generate-image', async (req, res) => {
         console.log('Output object:', output);
 
         // Check if the output contains a valid URL
-        if (output && output.url) {
+        if (output) {
             // Send the URL in the response
-            res.json({ success: true, imageUrl: output.url });
+            res.json({ success: true, imageUrl: output });
         } else {
             // Log an error if the URL is not found
             console.error('Image URL not found in the response:', output);
