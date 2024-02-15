@@ -76,7 +76,6 @@
                             <textarea id="promptVideo" placeholder="Enter prompt"></textarea>
                             <button id="generateVideoBtn">Generate Video</button>
                             <div id="videoContainer" class="mb-4">
-                                <h1 id="headVideo">Video URL: </h1>
                                 <video controls id="videoEl">
                                     <source src="" type="video/mp4">
                                 </video>
@@ -131,7 +130,6 @@
                 if (data.success) {
                     const videoUrl = data.videoUrl;
                     // Display the generated video URL
-                    document.getElementById("headVideo").textContent = 'Video URL: ' + videoUrl;
                     document.getElementById("videoEl").src = videoUrl;
                 } else {
                     alert('Failed to generate video. Please try again.');
