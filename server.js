@@ -97,6 +97,38 @@ app.post('/generate-video', async (req, res) => {
     }
 });
 
+app.post('/generate-audio', async (req, res) => {
+    const { prompt } = req.body;
+    try {
+        const output = await replicate.run(
+            "haoheliu/audio-ldm:b61392adecdd660326fc9cfc5398182437dbe5e97b5decfb36e1a36de68b5b95",
+            {
+                input: {
+                    text: prompt,
+                    duration: "5.0",
+                    n_candidates: 3,
+                    guidance_scale: 2.5
+                }
+            }
+        );
+        // Log the entire output object for debugging
+        console.log('Output object:', output);
+
+        // Check if the output contains a valid URL
+        if (output) {
+            // Send the URL in the response
+            res.json({ success: true, audioUrl: output });
+        } else {
+            // Log an error if the URL is not found
+            console.error('Audio URL not found in the response:', output);
+            res.status(500).json({ success: false, error: 'Failed to generate audio' });
+        }
+    } catch (error) {
+        // Log and handle any errors that occur during audio generation
+        console.error('Error generating audio:', error);
+        res.status(500).json({ success: false, error: 'Failed to generate audio' });
+    }
+});
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
