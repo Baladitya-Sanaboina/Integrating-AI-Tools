@@ -11,7 +11,7 @@ const port = process.env.PORT || 3000;
 const apiKey = process.env.REPLICATE_API_KEY;
 
 if (!apiKey) {
-    console.error("Please provide a valid REPLICATE_API_KEY in your environment variables.");
+    console.error("Please provide a valid REPLICATE_API_KEY in your environment variable.");
     process.exit(1);
 }
 
