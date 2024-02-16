@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Staatliches&display=swap" rel="stylesheet">
-    <title>Image Generator</title>
+    <title>AI Tools</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"/>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
@@ -74,13 +74,30 @@
                                         <div class="carousel-inner p-5">
                                             <div class="carousel-item active">
                                                 <h1>Image Generator</h1>
-                                                <textarea id="prompt" placeholder="Enter prompt"></textarea>
-                                                <button id="generateImgBtn">Generate Image</button>
+                                                <textarea cols = "40" row = "10" id = "prompt" placeholder="Enter Your Prompt" class = "text-area-style mb-2"></textarea>
+                                                <br/>
+                                                <button  class = "btn btn-danger" id = "generateImgBtn">Generate Image</button>
                                                 <div id="imageContainer" class = "mb-4">
-                                                    <img src="" id="imageEl" alt = "result"/>
+                                                    <div class = "d-none" id = "spinner">
+                                                        <div class="spinner-border m-5" role="status">
+                                                            <span class="sr-only">Loading...</span>
+                                                          </div>
+                                                    </div>
+                                                    <img src="" id="imageEl" alt = "" class = "ioutputmage- w-100"/>
                                                     <br/>
                                                 </div>
-                                                <a href = "result.jpg" download class = "result-download-button">Download Image</a>
+                                                <a href = "result.jpg" download>
+                                                    <button class="botao">
+                                                        <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mysvg"><g id="SVGRepo_bgCarrier" stroke-width="0">
+                                                          </g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier">
+                                                             <g id="Interface / Download"> 
+                                                             <path id="Vector" d="M6 21H18M12 3V17M12 17L17 12M12 17L7 12" stroke="#f1f1f1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                             </path>
+                                                          </g> </g>
+                                                        </svg>
+                                                        <span class="texto">Download</span>
+                                                      </button>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>

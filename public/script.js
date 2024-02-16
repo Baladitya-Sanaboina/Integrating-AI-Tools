@@ -1,5 +1,7 @@
 document.getElementById('generateImgBtn').addEventListener('click', async () => {
     const prompt = document.getElementById('prompt').value;
+    let spinnerEl = document.getElementById("spinner");
+    spinnerEl.classList.remove("d-none")
     try {
         const response = await fetch('/generate-image', {
             method: 'POST',
@@ -12,7 +14,9 @@ document.getElementById('generateImgBtn').addEventListener('click', async () => 
         if (data.success) {
             const imageUrl = data.imageUrl;
             // Display the generated image
-            
+            let imageContainerEl = document.getElementById("imageContainer")
+            imageContainerEl.classList.add("image-container")
+            spinnerEl.classList.add("d-none")
             let imageEl = document.getElementById("imageEl");
             imageEl.src = imageUrl;
         } else {
