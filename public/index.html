@@ -109,7 +109,7 @@
                                       <path d="M10,21.236,6.755,14.745,0.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z"></path>
                                   </svg>
                                   <span class="generate-text mb-2">Generate</span>
-                              </button>
+                                </button>
                               
                                 <div id = "imageContainer" class = "mb-4">
                                   <div id = "spinner" class = "d-none">
@@ -146,9 +146,52 @@
                 </div>
                 <div class = "col-12 mt-2 col-md-4" id = "secondCard">
                   <div class = "card-container w-100">
-                    <h3>Image Generator</h3>
+                    <h3>Video Generator Generator</h3>
                     <p>Out Innovative AI-powered tool allows you to generatea images from text to image effortlessly</p>
-                    
+                    <button class="button-click-here" data-toggle="modal" data-target="#customModal">
+                      <span class="button-content">Click Here </span>
+                    </button> 
+                    <div class="modal fade" id="customModal" tabindex="-1" aria-labelledby="customModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="customModalLabel">Custom Modal Title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <h3>Video Generator</h3>
+                            <p class = "modal-paragraph mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, sapiente reiciendis at, eos voluptates obcaecati repudiandae iure aspernatur quas nisi ab voluptas animi labore optio repellat maiores voluptate cupiditate quibusdam.</p>
+                            <textarea cols = "40" row = "50" id = "promptVideo" placeholder="Enter Your Prompt" class = "prompt-textarea mb-2"></textarea>
+                            <br/>
+                            <button class="generate-btn mb-4" id = "generateVideoBtn">
+                              <svg height="24" width="24" fill="#FFFFFF" viewBox="0 0 24 24" data-name="Layer 1" class="generate-sparkle">
+                                  <path d="M10,21.236,6.755,14.745,0.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z"></path>
+                              </svg>
+                              <span class="generate-text mb-2">Generate</span>
+                            </button>
+                            <div id = "video-container" class = "mb-3">
+                              <div id = "spinnerVideo" class = "d-none">
+                                <div class="spinner-border mt-4" role="status">
+                                  <span class="sr-only">Loading...</span>
+                                </div>
+                              </div>
+                              <div id="videoContainer" class="mb-4">
+                                <video controls id="videoEl" class = "d-none">
+                                    <source src="" type="video/mp4" autoplay>
+                                </video>
+                            </div>
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
                   </div>
                 </div>
                 <div class = "col-12 mt-2 col-md-4" id = "thirdCard">

@@ -68,6 +68,9 @@ document.getElementById('generateImgBtn').addEventListener('click', async () => 
 });
 document.getElementById('generateVideoBtn').addEventListener('click', async () => {
     const promptText = document.getElementById('promptVideo').value;
+    let spinnerEl = document.getElementById("spinnerVideo");
+    let videoPlayEl = document.getElementById("videoEl");
+    spinnerEl.classList.remove("d-none")
     try {
         const response = await fetch('/generate-video', {
         method: 'POST',
@@ -79,8 +82,10 @@ document.getElementById('generateVideoBtn').addEventListener('click', async () =
         const data = await response.json();
         if (data.success) {
                 const videoUrl = data.videoUrl;
-                // Display the generated video URL
-                 document.getElementById("videoEl").src = videoUrl;
+                spinnerEl.classList.add("d-none")
+                videoPlayEl.classList.remove("d-none")
+                videoPlayEl.src = videoUrl;
+
             } else {
                 alert('Failed to generate video. Please try again.');
             }
