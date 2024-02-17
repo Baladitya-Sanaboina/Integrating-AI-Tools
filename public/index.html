@@ -87,12 +87,12 @@
                   <div class = "card-container w-100">
                     <h3>Image Generator</h3>
                     <p>Out Innovative AI-powered tool allows you to generatea images from text to image effortlessly</p>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        Launch demo modal
-                      </button>
+                      <button class = "click-here-button" data-toggle="modal" data-target="#exampleModal">
+                        Button
+                    </button>
                       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
-                          <div class="modal-content">
+                          <div class="modal-content modal-style-width">
                             <div class="modal-header">
                               <h5 class="modal-title" id="exampleModalLabel">AI Stable Diffusion</h5>
                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -100,16 +100,45 @@
                               </button>
                             </div>
                             <div class="modal-body text-center">
-                                <h1>Image Generator</h1>
-                                <textarea cols = "40" row = "50" id = "prompt" placeholder="Enter Your Prompt" class = "text-area-style mb-2"></textarea>
+                                <h1 class = "modal-main-head">AI Image Generator</h1>
+                                <p class = "modal-paragraph mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, sapiente reiciendis at, eos voluptates obcaecati repudiandae iure aspernatur quas nisi ab voluptas animi labore optio repellat maiores voluptate cupiditate quibusdam.</p>
+                                <textarea cols = "40" row = "50" id = "prompt" placeholder="Enter Your Prompt" class = "prompt-textarea mb-2"></textarea>
                                 <br/>
                                 <div style="text-align: center;">
-                                <button class = "btn btn-primary" id = "generateImgBtn">Generate</button>
+                                <button class="generate-btn" id = "generateImgBtn">
+                                  <svg height="24" width="24" fill="#FFFFFF" viewBox="0 0 24 24" data-name="Layer 1" class="generate-sparkle">
+                                      <path d="M10,21.236,6.755,14.745,0.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z"></path>
+                                  </svg>
+                                  <span class="generate-text mb-2">Generate</span>
+                              </button>
+                              
+                                <div id = "imageContainer" class = "mb-4">
+                                  <div id = "spinner" class = "d-none">
+                                    <div class="spinner-border mt-4" role="status">
+                                      <span class="sr-only">Loading...</span>
+                                    </div>
+                                  </div>
+                                    <img src = "" id = "imageEl" alt = "" class = "w-100 "/>
+                                  <br/>
+                                </div>
+                                <div class="m-auto">
+                                  <button class="download-button d-none" type="button" id = "downloadButton">
+                                    <span class="download-button__text">Download</span>
+                                    <span class="download-button__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 35" id="bdd05811-e15d-428c-bb53-8661459f9307" data-name="Layer 2" class="download-svg"><path d="M17.5,22.131a1.249,1.249,0,0,1-1.25-1.25V2.187a1.25,1.25,0,0,1,2.5,0V20.881A1.25,1.25,0,0,1,17.5,22.131Z"></path><path d="M17.5,22.693a3.189,3.189,0,0,1-2.262-.936L8.487,15.006a1.249,1.249,0,0,1,1.767-1.767l6.751,6.751a.7.7,0,0,0,.99,0l6.751-6.751a1.25,1.25,0,0,1,1.768,1.767l-6.752,6.751A3.191,3.191,0,0,1,17.5,22.693Z"></path><path d="M31.436,34.063H3.564A3.318,3.318,0,0,1,.25,30.749V22.011a1.25,1.25,0,0,1,2.5,0v8.738a.815.815,0,0,0,.814.814H31.436a.815.815,0,0,0,.814-.814V22.011a1.25,1.25,0,1,1,2.5,0v8.738A3.318,3.318,0,0,1,31.436,34.063Z"></path></svg></span>
+                                  </button>
+                                </div>
                             </div>
                             </div>
                             <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                              <button type="button" class="btn btn-primary">Save changes</button>
+                              <button class="logout-btn" data-dismiss="modal">
+                                <div class="logout-sign">
+                                    <svg viewBox="0 0 512 512">
+                                        <path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"></path>
+                                    </svg>
+                                </div>
+                                <div class="logout-text">Exit</div>
+                            </button>
+                            
                             </div>
                           </div>
                         </div>

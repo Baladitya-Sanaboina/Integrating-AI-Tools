@@ -1,4 +1,5 @@
 let gridButtonEl = document.getElementById("gridButton");
+let downloadButtonEl = document.getElementById("downloadButton")
 let firstCardEl = document.getElementById("firstCard");
 let secondCardEl = document.getElementById("secondCard")
 let thirdCardEl = document.getElementById("thirdCard")
@@ -55,6 +56,7 @@ document.getElementById('generateImgBtn').addEventListener('click', async () => 
             spinnerEl.classList.add("d-none")
             let imageEl = document.getElementById("imageEl");
             imageEl.src = imageUrl;
+            downloadButtonEl.classList.remove("d-none")
         } else {
             alert('Failed to generate image. Please try again.');
         }
