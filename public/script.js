@@ -1,3 +1,39 @@
+let gridButtonEl = document.getElementById("gridButton");
+let firstCardEl = document.getElementById("firstCard");
+let secondCardEl = document.getElementById("secondCard")
+let thirdCardEl = document.getElementById("thirdCard")
+let fourthCardEl = document.getElementById("fourthCard")
+let fivthCardEl = document.getElementById("fivthCard")
+let sixthCardEl = document.getElementById("sixthCard")
+let cards_array = [firstCardEl, secondCardEl, thirdCardEl, fourthCardEl, fivthCardEl, sixthCardEl]
+let buttonClicked = false;
+gridButtonEl.onclick = function(){
+    if (buttonClicked === true){
+        buttonClicked = false;
+        for(let i of cards_array){
+            i.classList.remove("col-md-4", "shadow")
+            i.classList.add("col-md-12", "card-container-2")
+        }
+    } else{
+        for(let i of cards_array){
+            buttonClicked = true;
+            i.classList.remove("col-md-12", "card-container-2")
+            i.classList.add("col-md-4", "shadow", "w-100")
+        }
+    }
+}
+
+function showSidebar(){
+    const sidebar=document.querySelector('.sidebar');
+    sidebar.style.display="flex"
+  }
+
+  function hideSidebar(){
+    const siderbar=document.querySelector('.sidebar')
+    siderbar.style.display='none'
+   }
+
+
 document.getElementById('generateImgBtn').addEventListener('click', async () => {
     const prompt = document.getElementById('prompt').value;
     let spinnerEl = document.getElementById("spinner");
