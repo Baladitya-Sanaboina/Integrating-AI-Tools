@@ -256,11 +256,20 @@ nav li:first-child{
 }
 }
 
+@media (min-width:768px){
+  .menu-bar{
+    display: none;
+  }
+}
+
 @media(max-width:400px){
   .sidebar{
     width: 100%;
   }
 }
+
+
+
 .modal-style-width{
   width: 60vw;
 }
@@ -392,6 +401,14 @@ nav li:first-child{
 .modal-title{
   font-family: 'Dosis';
 }
+
+
+.card-logo{
+  height: 60px;
+  width: 60px;
+}
+
+
 .download-button {
   position: relative;
   width: 150px;
@@ -501,8 +518,8 @@ nav li:first-child{
   border-radius: inherit;
   background: linear-gradient(
     82.3deg,
-    rgba(150, 93, 233, 1) 10.8%,
-    rgba(99, 88, 238, 1) 94.3%
+    rgb(154, 236, 187) 10.8%,
+    rgb(163, 206, 243) 94.3%
   );
   transition: all 0.475s;
 }
@@ -526,13 +543,11 @@ footer {
 
 .footer-container {
   width: 100%;
-  background: linear-gradient(to right, #00093c, #2d0b00);
+  background-color:black; 
   color: #fff;
-  padding: 100px 0 30px;
+  padding:  20px;
   font-size: 13px;
-  border-top-left-radius: 125px;
   line-height: 20px;
-  margin-top: auto;
   /* Push footer to the bottom */
 }
 
@@ -636,7 +651,7 @@ footer {
 .horizontal-rule {
   width: 90%;
   border-bottom: 1px soild #ccc;
-  margin: 20px auto;
+  margin: 5px auto;
   background-color: white;
 }
 
@@ -690,3 +705,4 @@ footer {
       flex-basis: 100%;
   }
 }
+
