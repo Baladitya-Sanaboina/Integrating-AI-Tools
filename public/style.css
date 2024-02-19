@@ -505,3 +505,7 @@ nav li:first-child{
   );
   transition: all 0.475s;
 }
+.png-image{
+  height: 60px;
+  width: 60px;
+}
