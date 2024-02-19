@@ -8,7 +8,7 @@ let fivthCardEl = document.getElementById("fivthCard")
 let sixthCardEl = document.getElementById("sixthCard")
 let cards_array = [firstCardEl, secondCardEl, thirdCardEl, fourthCardEl, fivthCardEl, sixthCardEl]
 let buttonClicked = false;
-gridButtonEl.onclick = function(){
+gridButtonEl.addEventListener('click', function(){
     if (buttonClicked === true){
         buttonClicked = false;
         for(let i of cards_array){
@@ -19,10 +19,10 @@ gridButtonEl.onclick = function(){
         for(let i of cards_array){
             buttonClicked = true;
             i.classList.remove("col-md-12", "card-container-2")
-            i.classList.add("col-md-4", "shadow", "w-100")
+            i.classList.add("col-md-4", "w-100")
         }
     }
-}
+})
 
 function showSidebar(){
     const sidebar=document.querySelector('.sidebar');
