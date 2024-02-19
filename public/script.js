@@ -7,9 +7,9 @@ let fourthCardEl = document.getElementById("fourthCard")
 let fivthCardEl = document.getElementById("fivthCard")
 let sixthCardEl = document.getElementById("sixthCard")
 let cards_array = [firstCardEl, secondCardEl, thirdCardEl, fourthCardEl, fivthCardEl, sixthCardEl]
-let buttonClicked = false;
+let buttonClicked = true;
 gridButtonEl.addEventListener('click', function(){
-    if (buttonClicked === true){
+    if (buttonClicked){
         buttonClicked = false;
         for(let i of cards_array){
             i.classList.remove("col-md-4", "shadow")
