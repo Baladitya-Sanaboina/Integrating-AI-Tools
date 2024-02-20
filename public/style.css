@@ -710,3 +710,47 @@ footer {
   }
 }
 
+.integrating-second-main-background{
+  background-color: #dde5eb;
+  background-size: cover;
+  height: 100vh;
+  text-align: center;
+  padding: 20px;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+}
+.second-back-main-heading{
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 48px;
+}
+.about-us-main-image{
+  height: 200px;
+  width: 200px;
+}
+.second-section-paragraph{
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+}
+.second-section-main-image{
+  width: 100%;
+
+}
+.third-section-main-background{
+  background-color: white;
+  background-size: cover;
+  height: 100vh;
+  padding: 40px;
+}
+.card-why-choose-us {
+  width: 380px;
+  height: 394px;
+  border-radius: 50px;
+  background: #d3dee8;
+  box-shadow: 5px 5px 10px #bebebe,
+                -20px -20px 60px #ffffff;
+ margin-top: 20px;
+ }
