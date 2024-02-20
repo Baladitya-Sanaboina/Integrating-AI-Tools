@@ -713,7 +713,6 @@ footer {
 .integrating-second-main-background{
   background-color: #dde5eb;
   background-size: cover;
-  height: 100vh;
   text-align: center;
   padding: 20px;
   border-top-left-radius: 40px;
@@ -742,13 +741,12 @@ footer {
 .third-section-main-background{
   background-color: white;
   background-size: cover;
-  height: 100vh;
   padding: 40px;
 }
 .card-why-choose-us {
-  width: 380px;
-  height: 394px;
-  border-radius: 50px;
+  width: 340px;
+  height: 364px;
+  border-radius: 30px;
   background: #d3dee8;
   box-shadow: 5px 5px 10px #bebebe,
                 -20px -20px 60px #ffffff;
