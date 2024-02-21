@@ -757,6 +757,7 @@ footer {
 .healthy-food-section-img {
   width: 270px;
   height:200px;
+  border-radius: 20px;
 }
 .healthy-food-section-heading {
   color: #183b56;
