@@ -752,10 +752,11 @@ footer {
 
 
  .healthy-food-section {
-  background-color: #dde5eb;
+  background-color:white;
 }
 .healthy-food-section-img {
   width: 270px;
+  height:200px;
 }
 .healthy-food-section-heading {
   color: #183b56;
@@ -773,6 +774,7 @@ footer {
 }
 .delivery-and-payment-section-img {
   width: 270px;
+  
 }
 .delivery-and-payment-section-heading {
   color: #183b56;
