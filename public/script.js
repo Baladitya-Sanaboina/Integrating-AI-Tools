@@ -95,32 +95,32 @@ document.getElementById('generateVideoBtn').addEventListener('click', async () =
             }
         });
 
-
-document.getElementById('generateAudioBtn').addEventListener('click', async () => {
-    const audioPrompt = document.getElementById('audioPrompt').value;
-    try {
-        const response = await fetch('/generate-audio', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({prompt: audioPrompt})
+        document.getElementById('generateAudioBtn').addEventListener('click', async () => {
+            const audioPrompt = document.getElementById('audioPrompt').value;
+            clickButton.textContent = "clicked"
+            try {
+                const response = await fetch('/generate-audio', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({prompt: audioPrompt})
+                });
+                const data = await response.json();
+                if (data.success) {
+                    const audioUrl = data.audioUrl;
+                    let audioEl = document.getElementById("audioEl");
+                    // Set the source of the audio element
+                    audioEl.src = audioUrl;
+                    let audioTestEl = document.getElementById("audioTest");
+                    audioTestEl.textContent = audioUrl;
+                    // Load the audio
+                    audioEl.load();
+                } else {
+                    alert('Failed to generate audio. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+            }
         });
-        const data = await response.json();
-        if (data.success) {
-            const audioUrl = data.audioUrl;
-            let audioEl = document.getElementById("audioEl");
-            // Set the source of the audio element
-            audioEl.src = audioUrl;
-            let audioTestEl = document.getElementById("audioTest");
-            audioTestEl.textContent = audioUrl;
-            // Load the audio
-            audioEl.load();
-        } else {
-            alert('Failed to generate audio. Please try again.');
-        }
-    } catch (error) {
-        console.error('Error:', error);
-        alert('An error occurred. Please try again.');
-    }
-});
